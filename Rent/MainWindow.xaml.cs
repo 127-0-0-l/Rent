@@ -15,9 +15,18 @@ using System.Windows.Shapes;
 
 namespace Rent
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    enum UserType
+    {
+        LandLord,
+        Renter
+    }
+
+    enum PremisesType
+    {
+        Room,
+        Apartment
+    }
+
     public partial class MainWindow : Window
     {
         public MainWindow()

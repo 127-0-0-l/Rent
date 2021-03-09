@@ -14,12 +14,9 @@ using System.Windows.Shapes;
 
 namespace Rent
 {
-    /// <summary>
-    /// Interaction logic for Report.xaml
-    /// </summary>
-    public partial class Report : Window
+    public partial class ReportWindow : Window
     {
-        public Report()
+        public ReportWindow()
         {
             InitializeComponent();
         }
