@@ -9,7 +9,8 @@
         Height="500"
         Width="700"
         MinWidth="700"
-        MinHeight="500">
+        MinHeight="500"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid x:Name="grdAuthorization"
               Visibility="Visible">
@@ -48,11 +49,13 @@
                      VerticalAlignment="Center"
                      Width="120"
                      Grid.Row="2"/>
-            <Button Content="Log in"
+            <Button x:Name="btnLogin"
+                    Content="Log in"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     Width="75"
-                    Grid.Row="3"/>
+                    Grid.Row="3"
+                    Click="btnLogin_Click"/>
         </Grid>
         
         <Grid x:Name="grdMenu"
