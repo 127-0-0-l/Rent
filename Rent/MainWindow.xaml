@@ -5,8 +5,244 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Rent"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="500"
+        Width="700"
+        MinWidth="700"
+        MinHeight="500">
     <Grid>
+        <Grid x:Name="grdAuthorization"
+              Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock TextWrapping="Wrap"
+                       Text="Login"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Margin="0,0,150,0"
+                       Grid.Row="1"/>
+            <TextBlock HorizontalAlignment="Center"
+                       Margin="0,0,150,0"
+                       TextWrapping="Wrap"
+                       Text="Password"
+                       VerticalAlignment="Center"
+                       Grid.Row="2"/>
+            <TextBox x:Name="tbLogin"
+                     HorizontalAlignment="Center"
+                     Height="23"
+                     Margin="50,0,0,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     Width="120"
+                     Grid.Row="1"/>
+            <TextBox x:Name="tbPassword"
+                     HorizontalAlignment="Center"
+                     Height="23"
+                     Margin="50,0,0,0"
+                     TextWrapping="Wrap"
+                     VerticalAlignment="Center"
+                     Width="120"
+                     Grid.Row="2"/>
+            <Button Content="Log in"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="75"
+                    Grid.Row="3"/>
+        </Grid>
         
+        <Grid x:Name="grdMenu"
+              Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Button Name="btnCreateRecord"
+                    Grid.Row="1"
+                    Height="24"
+                    Width="100"
+                    Content="Создать запись"/>
+            <Button Name="btnFindRecords"
+                    Grid.Row="2"
+                    Height="24"
+                    Width="100"
+                    Content="Поиск записей"/>
+            <Button Name="btnDeleteRecord"
+                    Grid.Row="3"
+                    Height="24"
+                    Width="100"
+                    Content="Удалить запись"/>
+            <Button Name="btnCreateReport"
+                    Grid.Row="4"
+                    Height="24"
+                    Width="100"
+                    Content="Создать отчет"/>
+        </Grid>
+
+        <Grid x:Name="grdCreateRecord"
+              Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Тип помещения"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Адрес"
+                       Grid.Row="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Площадь"
+                       Grid.Row="2"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Количество комнат"
+                       Grid.Row="3"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+            <TextBlock Text="Стоимость"
+                       Grid.Row="4"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+
+            <ComboBox x:Name="tbPlacementType"
+                      Grid.Column="1"
+                      Height="24"/>
+            <TextBox x:Name="tbAdress"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     Height="24"/>
+            <TextBox x:Name="tbSquare"
+                     Grid.Row="2"
+                     Grid.Column="1"
+                     Height="24"
+                     />
+            <TextBox x:Name="tbRoomCount"
+                     Grid.Row="3"
+                     Grid.Column="1"
+                     Height="24"/>
+            <TextBox x:Name="tbCost"
+                     Grid.Row="4"
+                     Grid.Column="1"
+                     Height="24"/>
+        </Grid>
+
+        <Grid x:Name="grdFindRecords"
+              Visibility="Hidden">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Минимальная цена"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"/>
+            <TextBox x:Name="tbMinPrice"
+                     VerticalAlignment="Bottom"
+                     Margin="20,0,20,5"/>
+
+            <TextBlock Text="Максимальная цена"
+                       Grid.Column="1"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"/>
+            <TextBox x:Name="tbMaxPrice"
+                     Grid.Column="1"
+                     VerticalAlignment="Bottom"
+                     Margin="20,0,20,5"/>
+
+            <TextBlock Text="Минимальная площадь"
+                       Grid.Column="2"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"/>
+            <TextBox x:Name="tbMinSquare"
+                     Grid.Column="2"
+                     VerticalAlignment="Bottom"
+                     Margin="20,0,20,5"/>
+
+            <TextBlock Text="Максимальная площадь"
+                       Grid.Column="3"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"/>
+            <TextBox x:Name="tbMaxSquare"
+                     Grid.Column="3"
+                     VerticalAlignment="Bottom"
+                     Margin="20,0,20,5"/>
+
+            <DataGrid x:Name="dtgrdTable"
+                      Grid.Row="1"
+                      Grid.ColumnSpan="4">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Тип помещения"/>
+                    <DataGridTextColumn Header="Адрес"/>
+                    <DataGridTextColumn Header="Площадь"/>
+                    <DataGridTextColumn Header="Количество комнат"/>
+                    <DataGridTextColumn Header="Стоимость"/>
+                    <DataGridTextColumn Header="ФИО арендодателя"/>
+                    <DataGridTextColumn Header="Номер телефона"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+
+        <Grid x:Name="grdDeleteRecord"
+              Visibility="Hidden">
+            <TextBlock Text="Запись"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Top"
+                       Margin="20,20,0,0"/>
+            <ComboBox x:Name="cbRecordID"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Top"
+                      Margin="80,18,0,0"
+                      Width="100"/>
+            <Button x:Name="btnDelereRecordDelete"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="Удалить"
+                    Width="80"
+                    Height="24"
+                    Margin="20,50,0,0"/>
+        </Grid>
+
+        <Grid x:Name="grdCreateReport"
+              Visibility="Hidden">
+            <Button x:Name="btnCreateRecordsReport"
+                    Content="Предложения"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Width="100"
+                    Height="24"
+                    Margin="20,20,0,0"/>
+            <Button x:Name="btnCreateOperationsReport"
+                    Content="Операции"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Width="100"
+                    Height="24"
+                    Margin="140,20,0,0"/>
+        </Grid>
     </Grid>
 </Window>
