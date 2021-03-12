@@ -8,9 +8,9 @@
         public string Login { get; private set; }
         public string Password { get; private set; }
 
-        public User(UserType userType, string name, string phoneNumber, string login, string password)
+        public User(UserType typeOfUser, string name, string phoneNumber, string login, string password)
         {
-            TypeOfUser = userType;
+            TypeOfUser = typeOfUser;
             Name = name;
             PhoneNumber = phoneNumber;
             Login = login;

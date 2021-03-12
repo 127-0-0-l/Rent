@@ -67,7 +67,7 @@ namespace Rent
                         grdAuthorization.Visibility = Visibility.Hidden;
                         grdMenu.Visibility = Visibility.Visible;
 
-                        if(CurrentUser.TypeOfUser == (int)UserType.LandLord)
+                        if(CurrentUser.TypeOfUser.Equals(UserType.Renter))
                         {
                             btnCreateRecord.Visibility = Visibility.Hidden;
                         }
