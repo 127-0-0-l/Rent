@@ -2,16 +2,16 @@
 
 namespace Rent
 {
-    class RecordList
+    static class RecordList
     {
-        public List<Record> Records { get; private set; } = new List<Record>();
+        static public List<Record> Records { get; private set; } = new List<Record>();
 
-        public void AddRecord(Record record)
+        static public void AddRecord(Record record)
         {
             Records.Add(record);
         }
 
-        public void DeleteRecord(Record record)
+        static public void DeleteRecord(Record record)
         {
             Records.Remove(record);
         }

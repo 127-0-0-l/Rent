@@ -80,11 +80,72 @@ namespace Rent
             }
         }
 
+        private void btnCreateRecord_Click(object sender, RoutedEventArgs e)
+        {
+            grdMenu.Visibility = Visibility.Hidden;
+            grdCreateRecord.Visibility = Visibility.Visible;
+        }
+
+        private void btnFindRecords_Click(object sender, RoutedEventArgs e)
+        {
+            grdMenu.Visibility = Visibility.Hidden;
+            grdFindRecords.Visibility = Visibility.Visible;
+        }
+
+        private void btnDeleteRecord_Click(object sender, RoutedEventArgs e)
+        {
+            grdMenu.Visibility = Visibility.Hidden;
+            grdDeleteRecord.Visibility = Visibility.Visible;
+        }
+
+        private void btnCreateReport_Click(object sender, RoutedEventArgs e)
+        {
+            grdMenu.Visibility = Visibility.Hidden;
+            grdCreateReport.Visibility = Visibility.Visible;
+        }
+
         private void LoadUsers()
         {
             using(StreamReader file = new StreamReader(@".\Resources\Users.txt"))
             {
                 users = JsonConvert.DeserializeObject<List<User>>(file.ReadToEnd());
+            }
+        }
+
+        private void btnCreateRecordCreate_Click(object sender, RoutedEventArgs e)
+        {
+            if(tbAdress.Text.Length != 0 &&
+               tbCost.Text.Length != 0 &&
+               tbSquare.Text.Length != 0 &&
+               tbRoomCount.Text.Length != 0)
+            {
+                try
+                {
+                    PremisesType typeOfPremisses =
+                    cbPlacementType.Text == "Помещение" ?
+                    PremisesType.Apartment :
+                    PremisesType.Room;
+
+                    string address = tbAdress.Text;
+                    int square = int.Parse(tbSquare.Text);
+                    int numberOfRooms = int.Parse(tbRoomCount.Text);
+                    double price = double.Parse(tbCost.Text);
+
+                    Record record = new Record(typeOfPremisses, address, square, numberOfRooms, price, CurrentUser);
+                    RecordList.AddRecord(record);
+
+                    grdCreateRecord.Visibility = Visibility.Hidden;
+                    grdMenu.Visibility = Visibility.Visible;
+
+                    tbAdress.Text = "";
+                    tbCost.Text = "";
+                    tbSquare.Text = "";
+                    tbRoomCount.Text = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
