@@ -7,7 +7,9 @@
         public int Square { get; private set; }
         public int NumberOfRooms { get; private set; }
         public double Price { get; private set; }
-        public User LandLord { get; private set; }
+        private User LandLord { get; set; }
+        public string LandLordName { get; private set; }
+        public string LandLordPhoneNumber { get; private set; }
 
         public Record(PremisesType typeOfPremises, string address, int square, int numberOfRooms, double price, User landLord)
         {
@@ -17,6 +19,8 @@
             NumberOfRooms = numberOfRooms;
             Price = price;
             LandLord = landLord;
+            LandLordName = LandLord.Name;
+            LandLordPhoneNumber = LandLord.PhoneNumber;
         }
     }
 }

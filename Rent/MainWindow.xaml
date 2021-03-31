@@ -12,7 +12,7 @@
         MinWidth="700"
         MinHeight="500"
         Loaded="Window_Loaded">
-    <Grid>
+    <Grid x:Name="grid">
         <Grid x:Name="grdAuthorization"
               Visibility="Visible">
             <Grid.RowDefinitions>
@@ -97,7 +97,9 @@
         </Grid>
 
         <Grid x:Name="grdCreateRecord"
-              Visibility="Hidden">
+              Visibility="Hidden"
+              MouseRightButtonDown="grdCreateRecord_MouseRightButtonDown"
+              Background="#FFEBEBEB">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="40"/>
@@ -166,7 +168,9 @@
         </Grid>
 
         <Grid x:Name="grdFindRecords"
-              Visibility="Hidden">
+              Visibility="Hidden"
+              MouseRightButtonDown="grdFindRecords_MouseRightButtonDown"
+              Background="#FFEBEBEB">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
                 <RowDefinition Height="*"/>
@@ -183,7 +187,8 @@
                        VerticalAlignment="Top"/>
             <TextBox x:Name="tbMinPrice"
                      VerticalAlignment="Bottom"
-                     Margin="20,0,20,5"/>
+                     Margin="20,0,20,5"
+                     TextChanged="tbMinPrice_TextChanged"/>
 
             <TextBlock Text="Максимальная цена"
                        Grid.Column="1"
@@ -192,7 +197,8 @@
             <TextBox x:Name="tbMaxPrice"
                      Grid.Column="1"
                      VerticalAlignment="Bottom"
-                     Margin="20,0,20,5"/>
+                     Margin="20,0,20,5"
+                     TextChanged="tbMaxPrice_TextChanged"/>
 
             <TextBlock Text="Минимальная площадь"
                        Grid.Column="2"
@@ -201,7 +207,8 @@
             <TextBox x:Name="tbMinSquare"
                      Grid.Column="2"
                      VerticalAlignment="Bottom"
-                     Margin="20,0,20,5"/>
+                     Margin="20,0,20,5"
+                     TextChanged="tbMinSquare_TextChanged"/>
 
             <TextBlock Text="Максимальная площадь"
                        Grid.Column="3"
@@ -210,25 +217,18 @@
             <TextBox x:Name="tbMaxSquare"
                      Grid.Column="3"
                      VerticalAlignment="Bottom"
-                     Margin="20,0,20,5"/>
+                     Margin="20,0,20,5"
+                     TextChanged="tbMaxSquare_TextChanged"/>
 
             <DataGrid x:Name="dtgrdTable"
                       Grid.Row="1"
-                      Grid.ColumnSpan="4">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Тип помещения"/>
-                    <DataGridTextColumn Header="Адрес"/>
-                    <DataGridTextColumn Header="Площадь"/>
-                    <DataGridTextColumn Header="Количество комнат"/>
-                    <DataGridTextColumn Header="Стоимость"/>
-                    <DataGridTextColumn Header="ФИО арендодателя"/>
-                    <DataGridTextColumn Header="Номер телефона"/>
-                </DataGrid.Columns>
-            </DataGrid>
+                      Grid.ColumnSpan="4"/>
         </Grid>
 
         <Grid x:Name="grdDeleteRecord"
-              Visibility="Hidden">
+              Visibility="Hidden"
+              MouseRightButtonDown="grdDeleteRecord_MouseRightButtonDown"
+              Background="#FFEBEBEB">
             <TextBlock Text="Запись"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Top"
@@ -248,7 +248,9 @@
         </Grid>
 
         <Grid x:Name="grdCreateReport"
-              Visibility="Hidden">
+              Visibility="Hidden"
+              MouseRightButtonDown="grdCreateReport_MouseRightButtonDown"
+              Background="#FFEBEBEB">
             <Button x:Name="btnCreateRecordsReport"
                     Content="Предложения"
                     HorizontalAlignment="Left"

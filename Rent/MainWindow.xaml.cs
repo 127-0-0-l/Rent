@@ -122,9 +122,9 @@ namespace Rent
                 try
                 {
                     PremisesType typeOfPremisses =
-                    cbPlacementType.Text == "Помещение" ?
-                    PremisesType.Apartment :
-                    PremisesType.Room;
+                        cbPlacementType.Text == "Помещение" ?
+                            PremisesType.Apartment :
+                            PremisesType.Room;
 
                     string address = tbAdress.Text;
                     int square = int.Parse(tbSquare.Text);
@@ -147,6 +147,109 @@ namespace Rent
                     MessageBox.Show(ex.Message);
                 }
             }
+            else
+            {
+                MessageBox.Show("error: empty fields");
+            }
+        }
+
+        private void tbMinPrice_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            FilterData();
+        }
+
+        private void tbMaxPrice_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            FilterData();
+        }
+
+        private void tbMinSquare_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            FilterData();
+        }
+
+        private void tbMaxSquare_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            FilterData();
+        }
+
+        private void FilterData()
+        {
+            List<Record> records = new List<Record>(RecordList.Records);
+
+            if(tbMinPrice.Text.Length > 0)
+            {
+                for(int i = 0; i < records.Count; i++)
+                {
+                    if(records[i].Price < int.Parse(tbMinPrice.Text))
+                    {
+                        records.Remove(records[i]);
+                        i--;
+                    }
+                }
+            }
+
+            if (tbMaxPrice.Text.Length > 0)
+            {
+                for (int i = 0; i < records.Count; i++)
+                {
+                    if (records[i].Price > int.Parse(tbMaxPrice.Text))
+                    {
+                        records.Remove(records[i]);
+                        i--;
+                    }
+                }
+            }
+
+            if (tbMinSquare.Text.Length > 0)
+            {
+                for (int i = 0; i < records.Count; i++)
+                {
+                    if (records[i].Square < int.Parse(tbMinSquare.Text))
+                    {
+                        records.Remove(records[i]);
+                        i--;
+                    }
+                }
+            }
+
+            if (tbMaxSquare.Text.Length > 0)
+            {
+                for (int i = 0; i < records.Count; i++)
+                {
+                    if (records[i].Square < int.Parse(tbMaxSquare.Text))
+                    {
+                        records.Remove(records[i]);
+                        i--;
+                    }
+                }
+            }
+
+            dtgrdTable.ItemsSource = records;
+        }
+
+        private void grdCreateRecord_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            grdCreateRecord.Visibility = Visibility.Hidden;
+            grdMenu.Visibility = Visibility.Visible;
+        }
+
+        private void grdFindRecords_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            grdFindRecords.Visibility = Visibility.Hidden;
+            grdMenu.Visibility = Visibility.Visible;
+        }
+
+        private void grdDeleteRecord_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            grdDeleteRecord.Visibility = Visibility.Hidden;
+            grdMenu.Visibility = Visibility.Visible;
+        }
+
+        private void grdCreateReport_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            grdCreateReport.Visibility = Visibility.Hidden;
+            grdMenu.Visibility = Visibility.Visible;
         }
     }
 }
