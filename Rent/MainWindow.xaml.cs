@@ -104,6 +104,30 @@ namespace Rent
             grdCreateReport.Visibility = Visibility.Visible;
         }
 
+        private void grdCreateRecord_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            grdCreateRecord.Visibility = Visibility.Hidden;
+            grdMenu.Visibility = Visibility.Visible;
+        }
+
+        private void grdFindRecords_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            grdFindRecords.Visibility = Visibility.Hidden;
+            grdMenu.Visibility = Visibility.Visible;
+        }
+
+        private void grdDeleteRecord_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            grdDeleteRecord.Visibility = Visibility.Hidden;
+            grdMenu.Visibility = Visibility.Visible;
+        }
+
+        private void grdCreateReport_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            grdCreateReport.Visibility = Visibility.Hidden;
+            grdMenu.Visibility = Visibility.Visible;
+        }
+
         private void LoadUsers()
         {
             using(StreamReader file = new StreamReader(@".\Resources\Users.txt"))
@@ -177,11 +201,11 @@ namespace Rent
         {
             List<Record> records = new List<Record>(RecordList.Records);
 
-            if(tbMinPrice.Text.Length > 0)
+            if (tbMinPrice.Text.Length > 0)
             {
-                for(int i = 0; i < records.Count; i++)
+                for (int i = 0; i < records.Count; i++)
                 {
-                    if(records[i].Price < int.Parse(tbMinPrice.Text))
+                    if (records[i].Price < int.Parse(tbMinPrice.Text))
                     {
                         records.Remove(records[i]);
                         i--;
@@ -226,30 +250,6 @@ namespace Rent
             }
 
             dtgrdTable.ItemsSource = records;
-        }
-
-        private void grdCreateRecord_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            grdCreateRecord.Visibility = Visibility.Hidden;
-            grdMenu.Visibility = Visibility.Visible;
-        }
-
-        private void grdFindRecords_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            grdFindRecords.Visibility = Visibility.Hidden;
-            grdMenu.Visibility = Visibility.Visible;
-        }
-
-        private void grdDeleteRecord_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            grdDeleteRecord.Visibility = Visibility.Hidden;
-            grdMenu.Visibility = Visibility.Visible;
-        }
-
-        private void grdCreateReport_MouseRightButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            grdCreateReport.Visibility = Visibility.Hidden;
-            grdMenu.Visibility = Visibility.Visible;
         }
     }
 }
