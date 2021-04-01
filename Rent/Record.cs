@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.IO;
 
 namespace Rent
 {
@@ -29,6 +30,14 @@ namespace Rent
             LandLord = landLord;
             LandLordName = LandLord.Name;
             LandLordPhoneNumber = LandLord.PhoneNumber;
+        }
+
+        public static void LoadCurrentID()
+        {
+            using (StreamReader file = new StreamReader(@".\Resourses\ID.txt"))
+            {
+                CurrentID = int.Parse(file.ReadLine());
+            }
         }
     }
 }

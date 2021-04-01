@@ -33,6 +33,7 @@ namespace Rent
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             LoadUsers();
+            Record.LoadCurrentID();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
