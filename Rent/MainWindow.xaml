@@ -238,14 +238,14 @@
                       VerticalAlignment="Top"
                       Margin="80,18,0,0"
                       Width="100"/>
-            <Button x:Name="btnDelereRecordDelete"
+            <Button x:Name="btnDeleteRecordDelete"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="Удалить"
                     Width="80"
                     Height="24"
                     Margin="20,50,0,0"
-                    Click="btnDelereRecordDelete_Click"/>
+                    Click="btnDeleteRecordDelete_Click"/>
         </Grid>
 
         <Grid x:Name="grdCreateReport"

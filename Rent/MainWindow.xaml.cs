@@ -254,7 +254,7 @@ namespace Rent
             dtgrdTable.ItemsSource = records;
         }
 
-        private void btnDelereRecordDelete_Click(object sender, RoutedEventArgs e)
+        private void btnDeleteRecordDelete_Click(object sender, RoutedEventArgs e)
         {
 
         }
