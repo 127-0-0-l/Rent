@@ -244,7 +244,8 @@
                     Content="Удалить"
                     Width="80"
                     Height="24"
-                    Margin="20,50,0,0"/>
+                    Margin="20,50,0,0"
+                    Click="btnDelereRecordDelete_Click"/>
         </Grid>
 
         <Grid x:Name="grdCreateReport"

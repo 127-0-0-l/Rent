@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System;
 using System.Linq;
-using System.Windows.Media;
+using System.Configuration;
 
 namespace Rent
 {
@@ -96,6 +96,7 @@ namespace Rent
         {
             grdMenu.Visibility = Visibility.Hidden;
             grdDeleteRecord.Visibility = Visibility.Visible;
+            
         }
 
         private void btnCreateReport_Click(object sender, RoutedEventArgs e)
@@ -250,6 +251,11 @@ namespace Rent
             }
 
             dtgrdTable.ItemsSource = records;
+        }
+
+        private void btnDelereRecordDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

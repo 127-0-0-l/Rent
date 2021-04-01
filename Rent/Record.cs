@@ -1,7 +1,11 @@
-﻿namespace Rent
+﻿using System.Configuration;
+
+namespace Rent
 {
     class Record
     {
+        public static int CurrentID { get; private set; }
+        public int ID { get; private set; }
         public PremisesType TypeOfPremises { get; private set; }
         public string Address { get; private set; }
         public int Square { get; private set; }
@@ -13,6 +17,10 @@
 
         public Record(PremisesType typeOfPremises, string address, int square, int numberOfRooms, double price, User landLord)
         {
+            ID = CurrentID;
+            CurrentID++;
+            ConfigurationManager.AppSettings.Set("ID", $"{CurrentID}");
+
             TypeOfPremises = typeOfPremises;
             Address = address;
             Square = square;
