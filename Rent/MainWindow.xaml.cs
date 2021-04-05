@@ -34,6 +34,12 @@ namespace Rent
         {
             LoadUsers();
             Record.LoadCurrentID();
+            RecordList.LoadRecords();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            RecordList.SaveRecords();
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -97,6 +103,7 @@ namespace Rent
         {
             grdMenu.Visibility = Visibility.Hidden;
             grdDeleteRecord.Visibility = Visibility.Visible;
+            cbRecordID.ItemsSource = RecordList.Records.Select(o => o.ID);
             
         }
 
