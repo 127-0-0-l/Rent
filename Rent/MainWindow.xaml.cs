@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System.IO;
 using System;
 using System.Linq;
-using System.Configuration;
+using System.Text;
 
 namespace Rent
 {
@@ -97,6 +97,7 @@ namespace Rent
         {
             grdMenu.Visibility = Visibility.Hidden;
             grdFindRecords.Visibility = Visibility.Visible;
+            FilterData();
         }
 
         private void btnDeleteRecord_Click(object sender, RoutedEventArgs e)
@@ -164,7 +165,14 @@ namespace Rent
                     int numberOfRooms = int.Parse(tbRoomCount.Text);
                     double price = double.Parse(tbCost.Text);
 
-                    Record record = new Record(typeOfPremisses, address, square, numberOfRooms, price, CurrentUser);
+                    Record record = new Record(
+                        typeOfPremisses,
+                        address,
+                        square,
+                        numberOfRooms,
+                        price,
+                        CurrentUser.Name,
+                        CurrentUser.PhoneNumber);
                     RecordList.AddRecord(record);
 
                     grdCreateRecord.Visibility = Visibility.Hidden;
@@ -263,7 +271,47 @@ namespace Rent
 
         private void btnDeleteRecordDelete_Click(object sender, RoutedEventArgs e)
         {
+            if (cbRecordID.Text.Length > 0)
+            {
+                RecordList.DeleteRecord(int.Parse(cbRecordID.Text));
+                grdMenu.Visibility = Visibility.Visible;
+                grdDeleteRecord.Visibility = Visibility.Hidden;
+            }
+        }
 
+        private void btnCreateRecordsReport_Click(object sender, RoutedEventArgs e)
+        {
+            StringBuilder str = new StringBuilder();
+
+            foreach (var record in RecordList.Records)
+            {
+                str.Append(
+                    $"\nID: {record.ID}" +
+                    $"\nTypeOfPremises: {record.TypeOfPremises}" +
+                    $"\nAddress: {record.Address}" +
+                    $"\nSquare: {record.Square}" +
+                    $"\nNumberOfRooms: {record.NumberOfRooms}" +
+                    $"\nPrice: {record.Price}" +
+                    $"\nLandLordName: {record.LandLordName}" +
+                    $"\nLandLordPhoneNumber: {record.LandLordPhoneNumber}" +
+                    $"\n\n");
+            }
+
+            ReportWindow window = new ReportWindow(str.ToString());
+            window.Show();
+        }
+
+        private void btnCreateOperationsReport_Click(object sender, RoutedEventArgs e)
+        {
+            string operations;
+
+            using (StreamReader file = new StreamReader(@".\Resources\History.txt"))
+            {
+                operations = file.ReadToEnd();
+            }
+
+            ReportWindow window = new ReportWindow(operations);
+            window.Show();
         }
     }
 }

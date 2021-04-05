@@ -20,7 +20,8 @@
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
                 Height="24"
-                Width="100"/>
+                Width="100"
+                Click="btnSaveReport_Click"/>
         <RichTextBox x:Name="rtbReport"
                      Grid.Row="1"
                      VerticalScrollBarVisibility="Auto"

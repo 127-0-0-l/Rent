@@ -258,14 +258,16 @@
                     VerticalAlignment="Top"
                     Width="100"
                     Height="24"
-                    Margin="20,20,0,0"/>
+                    Margin="20,20,0,0"
+                    Click="btnCreateRecordsReport_Click"/>
             <Button x:Name="btnCreateOperationsReport"
                     Content="Операции"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Width="100"
                     Height="24"
-                    Margin="140,20,0,0"/>
+                    Margin="140,20,0,0"
+                    Click="btnCreateOperationsReport_Click"/>
         </Grid>
     </Grid>
 </Window>
