@@ -20,7 +20,10 @@ namespace Rent
         {
             ID = CurrentID;
             CurrentID++;
-            ConfigurationManager.AppSettings.Set("ID", $"{CurrentID}");
+            using (StreamWriter file = new StreamWriter(@".\Resources\ID.txt"))
+            {
+                file.Write(CurrentID);
+            }
 
             TypeOfPremises = typeOfPremises;
             Address = address;
@@ -34,7 +37,7 @@ namespace Rent
 
         public static void LoadCurrentID()
         {
-            using (StreamReader file = new StreamReader(@".\Resourses\ID.txt"))
+            using (StreamReader file = new StreamReader(@".\Resources\ID.txt"))
             {
                 CurrentID = int.Parse(file.ReadLine());
             }
