@@ -13,18 +13,18 @@ namespace Rent
         {
             Records.Add(record);
 
-            using (StreamWriter file = new StreamWriter(@".\Resources\History", true))
+            using (StreamWriter file = new StreamWriter(@".\Resources\History.txt", true))
             {
                 string str =
-                    $"\nAdd new record. Record info:" +
+                    $"\nДобавлена новая запись. Информация:" +
                     $"\nID: {record.ID}" +
-                    $"\nTypeOfPremises: {record.TypeOfPremises}" +
-                    $"\nAddress: {record.Address}" +
-                    $"\nSquare: {record.Square}" +
-                    $"\nNumberOfRooms: {record.NumberOfRooms}" +
-                    $"\nPrice: {record.Price}" +
-                    $"\nLandLordName: {record.LandLordName}" +
-                    $"\nLandLordPhoneNumber: {record.LandLordPhoneNumber}" +
+                    $"\nтип помещения: {record.TypeOfPremises}" +
+                    $"\nадрес: {record.Address}" +
+                    $"\nплощадь: {record.Square}" +
+                    $"\nколичество комнат: {record.NumberOfRooms}" +
+                    $"\nцена: {record.Price}" +
+                    $"\nимя арендодателя: {record.LandLordName}" +
+                    $"\nномер телефона арендодателя: {record.LandLordPhoneNumber}" +
                     $"\n\n";
 
                 file.Write(str);
@@ -37,18 +37,18 @@ namespace Rent
 
             Records.Remove(record);
 
-            using (StreamWriter file = new StreamWriter(@".\Resources\History", true))
+            using (StreamWriter file = new StreamWriter(@".\Resources\History.txt", true))
             {
                 string str =
-                    $"\nDelete record. Record info:" +
+                    $"\nУдалена запиь. Информация:" +
                     $"\nID: {record.ID}" +
-                    $"\nTypeOfPremises: {record.TypeOfPremises}" +
-                    $"\nAddress: {record.Address}" +
-                    $"\nSquare: {record.Square}" +
-                    $"\nNumberOfRooms: {record.NumberOfRooms}" +
-                    $"\nPrice: {record.Price}" +
-                    $"\nLandLordName: {record.LandLordName}" +
-                    $"\nLandLordPhoneNumber: {record.LandLordPhoneNumber}" +
+                    $"\nтип помещения: {record.TypeOfPremises}" +
+                    $"\nадрес: {record.Address}" +
+                    $"\nплощадь: {record.Square}" +
+                    $"\nколичество комнат: {record.NumberOfRooms}" +
+                    $"\nцена: {record.Price}" +
+                    $"\nимя арендодателя: {record.LandLordName}" +
+                    $"\nномер телефона арендодателя: {record.LandLordPhoneNumber}" +
                     $"\n\n";
 
                 file.Write(str);
