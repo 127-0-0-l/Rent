@@ -77,6 +77,7 @@ namespace Rent
                         if(CurrentUser.TypeOfUser.Equals(UserType.Renter))
                         {
                             btnCreateRecord.Visibility = Visibility.Hidden;
+                            btnDeleteRecord.Visibility = Visibility.Hidden;
                         }
                     }
                 }

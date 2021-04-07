@@ -25,6 +25,6 @@
         <RichTextBox x:Name="rtbReport"
                      Grid.Row="1"
                      VerticalScrollBarVisibility="Auto"
-                     IsReadOnly="True"/>
+                     IsReadOnly="True" Block.LineHeight="2"/>
     </Grid>
 </Window>
