@@ -282,36 +282,17 @@ namespace Rent
 
         private void btnCreateRecordsReport_Click(object sender, RoutedEventArgs e)
         {
-            StringBuilder str = new StringBuilder();
+            string reportText = Report.Records.Create();
 
-            foreach (var record in RecordList.Records)
-            {
-                str.Append(
-                    $"\nID: {record.ID}" +
-                    $"\nтип помещения: {record.TypeOfPremises}" +
-                    $"\nадрес: {record.Address}" +
-                    $"\nплощадь: {record.Square}" +
-                    $"\nколичество комнат: {record.NumberOfRooms}" +
-                    $"\nцена: {record.Price}" +
-                    $"\nимя арендодателя: {record.LandLordName}" +
-                    $"\nномер телефона арендодателя: {record.LandLordPhoneNumber}" +
-                    $"\n\n");
-            }
-
-            ReportWindow window = new ReportWindow(str.ToString());
+            ReportWindow window = new ReportWindow(reportText);
             window.Show();
         }
 
         private void btnCreateOperationsReport_Click(object sender, RoutedEventArgs e)
         {
-            string operations;
+            string reportText = Report.Operations.Create();
 
-            using (StreamReader file = new StreamReader(@".\Resources\History.txt"))
-            {
-                operations = file.ReadToEnd();
-            }
-
-            ReportWindow window = new ReportWindow(operations);
+            ReportWindow window = new ReportWindow(reportText);
             window.Show();
         }
     }
