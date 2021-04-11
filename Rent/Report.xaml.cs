@@ -1,8 +1,6 @@
 ﻿using System.Windows;
 using Microsoft.Win32;
 using System.IO;
-using System.Windows.Controls;
-using System.Windows.Documents;
 
 namespace Rent
 {
